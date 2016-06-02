@@ -1,5 +1,6 @@
 var data;
 function handle_files(files) {
+    window.alert("asdasd");
     for (i = 0; i < files.length; i++) {
         file = files[i];
         console.log(file);
