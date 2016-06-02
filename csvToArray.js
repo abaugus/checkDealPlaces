@@ -99,6 +99,7 @@ function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
     var ret = [];
+    alert("INNER");
     geocoder.geocode({
         'address': address
     }, function(results, status) {
