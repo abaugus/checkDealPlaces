@@ -126,6 +126,7 @@ function initialize() {
       });
 }
 function codeAddress(address) {
+    window.alert(address+ "code");
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
     var ret = [];
@@ -154,7 +155,7 @@ function checkDeals() {
         var temp = String(data[i][4]);
         //window.alert(temp);
         var val = getAutoSuggestions(temp);
-        window.alert(val);
+        //window.alert(val);
         var ret = codeAddress(val);
         window.alert(ret[0]+ " " + ret[1]);
         if(ret.length>0)
