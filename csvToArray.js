@@ -80,31 +80,11 @@ function CSVToArray(strData, strDelimiter) {
     // Return the parsed data.
     return (arrData);
 }
-/*
-function initialize() {
-    var address = (document.getElementById('my-address'));
-    var autocomplete = new google.maps.places.Autocomplete(address);
-    autocomplete.setTypes(['geocode']);
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-        var place = autocomplete.getPlace();
-        if (!place.geometry) {
-            return;
-        }
-        var address = '';
-        if (place.address_components) {
-            address = [
-                (place.address_components[0] && place.address_components[0].short_name || ''),
-                (place.address_components[1] && place.address_components[1].short_name || ''),
-                (place.address_components[2] && place.address_components[2].short_name || '')
-            ].join(' ');
-        }
-    });
-}*/
-
 
 function getAutoSuggestions(address) {
         //var address = (document.getElementById('my-address'));
         //address = address.value;
+        address = "KFC New Delhi";
         var autocomplete = new google.maps.places.Autocomplete(address);
         autocomplete.setTypes(['geocode']);
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -123,7 +103,7 @@ function getAutoSuggestions(address) {
         }
       });
         window.alert(address);
-    return address;
+        return address;
 }
 function initialize() {
         var address = (document.getElementById('my-address'));
