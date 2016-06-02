@@ -184,5 +184,5 @@ function codeAddress() {
       }
     });
   }
+  */
 google.maps.event.addDomListener(window, 'load', initialize);
-*/
