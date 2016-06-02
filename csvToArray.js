@@ -153,9 +153,9 @@ function checkDeals() {
     for (var i = 2; i <= data.length - 2; i++) {
         var temp = String(data[i][4]);
         //window.alert(temp);
-        temp = getAutoSuggestions(temp);
-        window.alert(temp);
-        var ret = codeAddress(temp);
+        var val = getAutoSuggestions(temp);
+        window.alert(val);
+        var ret = codeAddress(val);
         window.alert(ret);
         if(ret.length>0)
         {
