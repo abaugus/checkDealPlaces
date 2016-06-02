@@ -1,4 +1,4 @@
-function CSVToArray(strData, strDelimiter) {
+/*function CSVToArray(strData, strDelimiter) {
     // Check to see if the delimiter is defined. If not,
     // then default to comma.
     strDelimiter = (strDelimiter || ",");
@@ -81,9 +81,9 @@ function CSVToArray(strData, strDelimiter) {
     return (arrData);
 }
 
-function initialize(address) {
+function initialize() {
     //var address = name + city
-    //var address = (document.getElementById('my-address'));
+    var address = (document.getElementById('my-address'));
     var autocomplete = new google.maps.places.Autocomplete(address);
     autocomplete.setTypes(['geocode']);
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -105,7 +105,7 @@ function initialize(address) {
 
 function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
-    //var address = document.getElementById("my-address").value;
+    var address = document.getElementById("my-address").value;
     var ret = [];
     geocoder.geocode({
         'address': address
@@ -118,12 +118,12 @@ function codeAddress(address) {
             console.log("Geocode was not successful for the following reason: " + status);
         }
     });
-    return ret;
+    //return ret;
 }
 /* 
     Shows the distance between two LatLng in Metre
 */
-function Distance(p1, p2) {
+/*function Distance(p1, p2) {
     var dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 100000;
     return dist;
 }
@@ -146,6 +146,42 @@ function checkDeals() {
         } else {
             window.alert("False");
         }
-    }*/
+    }
+}*/
+
+ function initialize() {
+        var address = (document.getElementById('my-address'));
+        var autocomplete = new google.maps.places.Autocomplete(address);
+        autocomplete.setTypes(['geocode']);
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                return;
+            }
+
+        var address = '';
+        if (place.address_components) {
+            address = [
+                (place.address_components[0] && place.address_components[0].short_name || ''),
+                (place.address_components[1] && place.address_components[1].short_name || ''),
+                (place.address_components[2] && place.address_components[2].short_name || '')
+                ].join(' ');
+        }
+      });
 }
-google.maps.event.addDomListener(window, 'load', checkDeals);
+function codeAddress() {
+    geocoder = new google.maps.Geocoder();
+    var address = document.getElementById("my-address").value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+
+      alert("Latitude: "+results[0].geometry.location.lat());
+      alert("Longitude: "+results[0].geometry.location.lng());
+      } 
+
+      else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+google.maps.event.addDomListener(window, 'load', initialize);
