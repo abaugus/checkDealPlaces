@@ -169,7 +169,7 @@ function checkDeals() {
     for (var i = 1; i <= data.length - 2; i++) {
         var temp = String(data[i][0] + " " +data[i][4]);
         window.alert(temp);
-        temp = getAutoSuggestions(String(temp));
+        //temp = getAutoSuggestions(String(temp));
         var ret = codeAddress(temp);
         //window.alert(ret);
         if(ret.length>0)
