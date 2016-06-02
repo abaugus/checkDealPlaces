@@ -128,6 +128,7 @@ function initialize() {
 function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
+    window.alert(address+"asdasd");
     var ret;
     geocoder.geocode({
         'address': address
