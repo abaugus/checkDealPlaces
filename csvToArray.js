@@ -72,29 +72,6 @@ function initialize() {
     });
 }
 
-function getAutoSuggestions(address) {
-    //var address = (document.getElementById('my-address'));
-    address = "KFC New Delhi";
-    var autocomplete = new google.maps.places.Autocomplete(address);
-    autocomplete.setTypes(['geocode']);
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-        var place = autocomplete.getPlace();
-        if (!place.geometry) {
-            return;
-        }
-
-        var address = '';
-        if (place.address_components) {
-            address = [
-                (place.address_components[0] && place.address_components[0].short_name || ''),
-                (place.address_components[1] && place.address_components[1].short_name || ''),
-                (place.address_components[2] && place.address_components[2].short_name || '')
-            ].join(' ');
-        }
-    });
-    return address;
-}
-
 function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
@@ -119,6 +96,31 @@ function codeAddress(address) {
     //return ret;
 }
 
+function getAutoSuggestions(address) {
+    //var address = (document.getElementById('my-address'));
+    address = "KFC New Delhi";
+    var autocomplete = new google.maps.places.Autocomplete(address);
+    autocomplete.setTypes(['geocode']);
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+            return;
+        }
+
+        var address = '';
+        if (place.address_components) {
+            address = [
+                (place.address_components[0] && place.address_components[0].short_name || ''),
+                (place.address_components[1] && place.address_components[1].short_name || ''),
+                (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+        }
+    });
+    return codeAddress(address);
+}
+
+
+
 function Distance(p1, p2) {
     var dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 100000.0;
     return dist;
@@ -129,8 +131,8 @@ function checkDeals() {
         var temp = String(data[i][4]);
         window.alert(temp);
         var val = getAutoSuggestions(temp);
-        /*var ret = */codeAddress(val);
-        /*window.alert("asd"+ret);
+        /*var ret = codeAddress(val);
+        */window.alert("asd"+ret);
         if (ret.length > 0) {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
             var p2 = new google.maps.LatLng(ret[0], ret[1]);
@@ -140,7 +142,7 @@ function checkDeals() {
             } else {
                 window.alert("False");
             }
-        }*/
+        }
     }
 }
 
