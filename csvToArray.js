@@ -158,9 +158,9 @@ function getAutoSuggestions(address) {
         }
       });
 }
-function codeAddress(address) {
+function codeAddress() {
     geocoder = new google.maps.Geocoder();
-    //var address = document.getElementById("my-address").value;
+    var address = document.getElementById("my-address").value;
     var ret = [];
     geocoder.geocode({
         'address': address
