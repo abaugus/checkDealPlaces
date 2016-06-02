@@ -122,7 +122,7 @@ function getAutoSuggestions(address) {
         }
       });
 }
- function initialize() {
+function initialize() {
         var address = (document.getElementById('my-address'));
         var autocomplete = new google.maps.places.Autocomplete(address);
         autocomplete.setTypes(['geocode']);
@@ -159,7 +159,7 @@ function codeAddress() {
     });
     //return ret;
 }
-
+ 
 
 function Distance(p1, p2) {
     var dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 100000;
