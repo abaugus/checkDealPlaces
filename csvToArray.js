@@ -102,6 +102,7 @@ function codeAddress(address) {
     geocoder.geocode({
         'address': address
     }, function(results, status) {
+        alert("In");
         if (status == google.maps.GeocoderStatus.OK) {
             window.alert("Latitude: " + results[0].geometry.location.lat() + " Longitude: " + results[0].geometry.location.lng());
             ret[0] = results[0].geometry.location.lat();
@@ -109,18 +110,12 @@ function codeAddress(address) {
             window.alert("codeAddress " + ret);
 
         } 
-        /*else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT)
-        {      
-            setTimeout(3000);
-            window.alert("Geocode was not successful for the following reason: " + status);
-        } */      
         else 
         {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
         window.alert("gone");
     });
-    alert("ret " + address);
     return ret;
 }
 
