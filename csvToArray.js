@@ -99,7 +99,7 @@ function initialize() {
             ].join(' ');
         }
     });
-}
+}*/
 function codeAddress() {
     geocoder = new google.maps.Geocoder();
     var address = document.getElementById("my-address").value;
@@ -117,7 +117,7 @@ function codeAddress() {
     });
     //return ret;
 }
-*/
+
 function getAutoSuggestions(address) {
         //var address = (document.getElementById('my-address'));
         var autocomplete = new google.maps.places.Autocomplete(address);
@@ -175,9 +175,8 @@ function codeAddress(address) {
     });
     return ret;
 }
-/* 
-    Shows the distance between two LatLng in Metre
-*/
+
+
 function Distance(p1, p2) {
     var dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 100000;
     return dist;
