@@ -74,7 +74,6 @@ function initialize() {
 
 function getAutoSuggestions(address) {
         //var address = (document.getElementById('my-address'));
-        //address = address.value;
         address = "KFC New Delhi";
         var autocomplete = new google.maps.places.Autocomplete(address);
         autocomplete.setTypes(['geocode']);
@@ -93,7 +92,6 @@ function getAutoSuggestions(address) {
                 ].join(' ');
         }
       });
-        alert("return getAutoSuggestions + "address);
         return address;
 }
 
@@ -109,7 +107,7 @@ function codeAddress(address) {
             window.alert("Latitude: " + results[0].geometry.location.lat() + " Longitude: " + results[0].geometry.location.lng());
             ret[0] = results[0].geometry.location.lat();
             ret[1] = results[0].geometry.location.lng();
-            window.alert(ret);
+            window.alert("codeAddress "+ret);
             
         } else {
             window.alert("Geocode was not successful for the following reason: " + status);
@@ -131,7 +129,7 @@ function checkDeals() {
         var val = getAutoSuggestions(temp);
         //window.alert(val);
         var ret = codeAddress(val);
-        window.alert(ret);
+        //window.alert(ret);
         if(ret.length>0)
         {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
