@@ -187,7 +187,7 @@ function Distance(p1, p2) {
 
 function checkDeals() {
     for (var i = 1; i <= data.length - 2; i++) {
-        var temp = String(data[i][0] + data[i][5]);
+        var temp = String(data[i][0] + data[i][4]);
         //window.alert(temp);
         //temp = getAutoSuggestions(temp);
         window.alert(temp);
