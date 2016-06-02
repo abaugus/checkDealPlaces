@@ -157,7 +157,7 @@ function codeAddress(address) {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
     });
-    //return ret;
+    return ret;
 }
  
 
@@ -171,7 +171,6 @@ function checkDeals() {
         var temp = String(data[i][0] + data[i][4]);
         window.alert(temp);
         //temp = getAutoSuggestions(temp);
-        //window.alert(temp);
         var ret = codeAddress(temp);
         //window.alert(ret);
         if(ret.length>0)
