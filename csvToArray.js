@@ -80,7 +80,7 @@ function CSVToArray(strData, strDelimiter) {
     // Return the parsed data.
     return (arrData);
 }
-
+/*
 function initialize() {
     var address = (document.getElementById('my-address'));
     var autocomplete = new google.maps.places.Autocomplete(address);
@@ -119,35 +119,7 @@ function codeAddress() {
     });
     //return ret;
 }
-/* 
-    Shows the distance between two LatLng in Metre
 */
-function Distance(p1, p2) {
-    var dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 100000;
-    return dist;
-}
-
-function checkDeals() {
-    window.alert("asd");
-    var fs = require('fs');
-    var value = fs.readFileSync('test');
-    var data = CSVToArray(String(value));
-    window.alert(data);
-    for (var i = 1; i <= data.length - 2; i++) {
-        var temp = String(data[i][0] + data[i][4] + data[i][5]);
-        window.alert(data[i][0]+ " " + data[i][4]+ " " +data[i][5]);
-        temp = initialize(temp);
-        var ret = codeAddress(temp);
-        var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
-        var p2 = new google.maps.LatLng(ret[0], ret[1]);
-        if (Distance(p1, p2) <= 50.0000) {
-            window.alert("True");
-        } else {
-            window.alert("False");
-        }
-    }
-}
-/*
  function initialize() {
         var address = (document.getElementById('my-address'));
         var autocomplete = new google.maps.places.Autocomplete(address);
@@ -168,9 +140,9 @@ function checkDeals() {
         }
       });
 }
-function codeAddress() {
+function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
-    var address = document.getElementById("my-address").value;
+    //var address = document.getElementById("my-address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
 
@@ -183,5 +155,34 @@ function codeAddress() {
       }
     });
   }
-  */
+
+/* 
+    Shows the distance between two LatLng in Metre
+*/
+function Distance(p1, p2) {
+    var dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 100000;
+    return dist;
+}
+
+function checkDeals() {
+    window.alert("asd");
+    var fs = require('fs');
+    var value = fs.readFileSync('test');
+    var data = CSVToArray(String(value));
+    window.alert(data);
+    for (var i = 1; i <= data.length - 2; i++) {
+        var temp = String(data[i][0] + data[i][4] + data[i][5]);
+        window.alert(data[i][0]+ " " + data[i][4]+ " " +data[i][5]);
+        //temp = initialize(temp);
+        var ret = codeAddress(temp);
+        var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
+        var p2 = new google.maps.LatLng(ret[0], ret[1]);
+        if (Distance(p1, p2) <= 50.0000) {
+            window.alert("True");
+        } else {
+            window.alert("False");
+        }
+    }
+}
+
 google.maps.event.addDomListener(window, 'load', initialize);
