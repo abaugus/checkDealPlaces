@@ -156,7 +156,7 @@ function checkDeals() {
         temp = getAutoSuggestions(temp);
         window.alert(temp);
         var ret = codeAddress(temp);
-        //window.alert(ret);
+        window.alert(ret);
         if(ret.length>0)
         {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
