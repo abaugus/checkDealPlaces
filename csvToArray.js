@@ -103,7 +103,9 @@ function initialize() {
 
 function getAutoSuggestions(address) {
         //var address = (document.getElementById('my-address'));
+        window.alert(address);
         var autocomplete = new google.maps.places.Autocomplete(address);
+        window.alert(autocomplete);
         autocomplete.setTypes(['geocode']);
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
             var place = autocomplete.getPlace();
