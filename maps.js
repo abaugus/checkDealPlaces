@@ -4,7 +4,7 @@ function handle_files(files) {
         console.log(file);
         var reader = new FileReader();
         reader.onload = function(e) {
-            window.alert(e.target.result);
+            //window.alert(e.target.result);
             var data = CSVToArray(e.target.result);
             window.alert(data);
             }
