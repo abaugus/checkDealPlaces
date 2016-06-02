@@ -98,7 +98,7 @@ function getAutoSuggestions(address) {
 function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
-    //window.alert(address);
+    window.alert("goinhg");
     var ret = [];
     geocoder.geocode({
         'address': address
