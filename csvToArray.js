@@ -1,4 +1,4 @@
-/*function CSVToArray(strData, strDelimiter) {
+function CSVToArray(strData, strDelimiter) {
     // Check to see if the delimiter is defined. If not,
     // then default to comma.
     strDelimiter = (strDelimiter || ",");
@@ -123,7 +123,7 @@ function codeAddress(address) {
 /* 
     Shows the distance between two LatLng in Metre
 */
-/*function Distance(p1, p2) {
+function Distance(p1, p2) {
     var dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 100000;
     return dist;
 }
@@ -134,7 +134,7 @@ function checkDeals() {
     var value = fs.readFileSync('test');
     var data = CSVToArray(String(value));
     window.alert(data);
-    /*for (var i = 1; i <= data.length - 2; i++) {
+    for (var i = 1; i <= data.length - 2; i++) {
         var temp = String(data[i][0] + data[i][4] + data[i][5]);
         window.alert(data[i][0]+ " " + data[i][4]+ " " +data[i][5]);
         temp = initialize(temp);
@@ -147,8 +147,8 @@ function checkDeals() {
             window.alert("False");
         }
     }
-}*/
-
+}
+/*
  function initialize() {
         var address = (document.getElementById('my-address'));
         var autocomplete = new google.maps.places.Autocomplete(address);
@@ -185,3 +185,4 @@ function codeAddress() {
     });
   }
 google.maps.event.addDomListener(window, 'load', initialize);
+*/
