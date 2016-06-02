@@ -120,6 +120,26 @@ function codeAddress() {
     //return ret;
 }
 */
+function getAutoSuggestions(address) {
+        //var address = (document.getElementById('my-address'));
+        var autocomplete = new google.maps.places.Autocomplete(address);
+        autocomplete.setTypes(['geocode']);
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                return;
+            }
+
+        var address = '';
+        if (place.address_components) {
+            address = [
+                (place.address_components[0] && place.address_components[0].short_name || ''),
+                (place.address_components[1] && place.address_components[1].short_name || ''),
+                (place.address_components[2] && place.address_components[2].short_name || '')
+                ].join(' ');
+        }
+      });
+}
  function initialize(address) {
         //var address = (document.getElementById('my-address'));
         var autocomplete = new google.maps.places.Autocomplete(address);
@@ -140,21 +160,6 @@ function codeAddress() {
         }
       });
 }
-/*function codeAddress(address) {
-    geocoder = new google.maps.Geocoder();
-    //var address = document.getElementById("my-address").value;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-
-      alert("Latitude: "+results[0].geometry.location.lat());
-      alert("Longitude: "+results[0].geometry.location.lng());
-      } 
-
-      else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
-  }*/
 function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
@@ -183,8 +188,8 @@ function Distance(p1, p2) {
 function checkDeals() {
     for (var i = 1; i <= data.length - 2; i++) {
         var temp = String(data[i][0] + data[i][5]);
-        window.alert(temp);
-        temp = initialize(temp);
+        //window.alert(temp);
+        //temp = getAutoSuggestions(temp);
         window.alert(temp);
         var ret = codeAddress(temp);
         window.alert(ret);
