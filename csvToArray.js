@@ -104,10 +104,8 @@ function initialize() {
 
 function getAutoSuggestions(address) {
         //var address = (document.getElementById('my-address'));
-        window.alert(address);
         address = address.value;
         var autocomplete = new google.maps.places.Autocomplete(address);
-        window.alert(String(autocomplete));
         autocomplete.setTypes(['geocode']);
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
             var place = autocomplete.getPlace();
@@ -124,6 +122,8 @@ function getAutoSuggestions(address) {
                 ].join(' ');
         }
       });
+        window.alert(address);
+    return address;
 }
 function initialize() {
         var address = (document.getElementById('my-address'));
