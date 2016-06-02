@@ -9,7 +9,7 @@ function handle_files(files) {
             window.alert(e.target.result);
             data = CSVToArray(String(e.target.result));
             window.alert(String(data));
-            checkDeals();
+            //checkDeals();
             }
         reader.onerror = function(stuff) {
             console.log("error", stuff);

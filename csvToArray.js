@@ -145,16 +145,16 @@ function getAutoSuggestions(address) {
 function codeAddress() {
     geocoder = new google.maps.Geocoder();
     var address = document.getElementById("my-address").value;
-    //var ret = [];
+    var ret = [];
     geocoder.geocode({
         'address': address
     }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            alert("Latitude: " + results[0].geometry.location.lat() + "Longitude: " + results[0].geometry.location.lng());
+            window.alert("Latitude: " + results[0].geometry.location.lat() + "Longitude: " + results[0].geometry.location.lng());
             ret[0] = results[0].geometry.location.lat();
             ret[1] = results[0].geometry.location.lng();
         } else {
-            alert("Geocode was not successful for the following reason: " + status);
+            window.alert("Geocode was not successful for the following reason: " + status);
         }
     });
     //return ret;
