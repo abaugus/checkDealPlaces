@@ -109,7 +109,13 @@ function codeAddress(address) {
             ret[1] = results[0].geometry.location.lng();
             window.alert("codeAddress " + ret);
 
-        } else {
+        } 
+        else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+            nextAddress--;
+            delay++;
+        } 
+        else 
+        {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
     });
