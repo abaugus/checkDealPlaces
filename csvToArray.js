@@ -166,9 +166,6 @@ function Distance(p1, p2) {
 
 function checkDeals() {
     window.alert("asd");
-    var fs = require('fs');
-    var value = fs.readFileSync('test');
-    var data = CSVToArray(String(value));
     window.alert(data);
     for (var i = 1; i <= data.length - 2; i++) {
         var temp = String(data[i][0] + data[i][4] + data[i][5]);
