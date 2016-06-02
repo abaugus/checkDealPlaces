@@ -51,31 +51,6 @@ function CSVToArray(strData, strDelimiter) {
     return (arrData);
 }
 
-function getAutoSuggestions(address) {
-        //var address = (document.getElementById('my-address'));
-        //address = address.value;
-        address = "KFC New Delhi";
-        var autocomplete = new google.maps.places.Autocomplete(address);
-        autocomplete.setTypes(['geocode']);
-        google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            var place = autocomplete.getPlace();
-            if (!place.geometry) {
-                return;
-            }
-
-        var address = '';
-        if (place.address_components) {
-            address = [
-                (place.address_components[0] && place.address_components[0].short_name || ''),
-                (place.address_components[1] && place.address_components[1].short_name || ''),
-                (place.address_components[2] && place.address_components[2].short_name || '')
-                ].join(' ');
-            window.alert(address);
-        
-        }
-      });
-        return address;
-}
 function initialize() {
         var address = (document.getElementById('my-address'));
         var autocomplete = new google.maps.places.Autocomplete(address);
@@ -96,6 +71,32 @@ function initialize() {
         }
       });
 }
+
+function getAutoSuggestions(address) {
+        //var address = (document.getElementById('my-address'));
+        //address = address.value;
+        address = "KFC New Delhi";
+        var autocomplete = new google.maps.places.Autocomplete(address);
+        autocomplete.setTypes(['geocode']);
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                return;
+            }
+
+        var address = '';
+        if (place.address_components) {
+            address = [
+                (place.address_components[0] && place.address_components[0].short_name || ''),
+                (place.address_components[1] && place.address_components[1].short_name || ''),
+                (place.address_components[2] && place.address_components[2].short_name || '')
+                ].join(' ');
+        }
+      });
+        alert("return getAutoSuggestions + "address);
+        return address;
+}
+
 function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
