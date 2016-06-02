@@ -5,7 +5,7 @@ function handle_files(files) {
         var reader = new FileReader();
         reader.onload = function(e) {
             //window.alert(e.target.result);
-            var data = CSVToArray(String(e.target.result));
+            var data = CSVToArray(String(e.target.result.value));
             window.alert(data);
             }
         reader.onerror = function(stuff) {
