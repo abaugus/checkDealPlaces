@@ -129,11 +129,12 @@ function Distance(p1, p2) {
 }
 
 function checkDeals() {
-    var fs = require('fs');
+    window.alert("asd");
+    /*var fs = require('fs');
     var value = fs.readFileSync('test');
     var data = CSVToArray(String(value));
     window.alert(data);
-    /*for (var i = 1; i <= data.length - 2; i++) {
+    for (var i = 1; i <= data.length - 2; i++) {
         var temp = String(data[i][0] + data[i][4] + data[i][5]);
         window.alert(data[i][0]+ " " + data[i][4]+ " " +data[i][5]);
         temp = initialize(temp);
