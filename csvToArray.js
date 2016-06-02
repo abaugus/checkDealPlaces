@@ -79,7 +79,8 @@ function CSVToArray(strData, strDelimiter) {
 
     // Return the parsed data.
     return (arrData);
-}/*
+}
+/*
 function initialize() {
     var address = (document.getElementById('my-address'));
     var autocomplete = new google.maps.places.Autocomplete(address);
@@ -104,6 +105,7 @@ function initialize() {
 function getAutoSuggestions(address) {
         //var address = (document.getElementById('my-address'));
         window.alert(address);
+        address = address.value;
         var autocomplete = new google.maps.places.Autocomplete(address);
         window.alert(String(autocomplete));
         autocomplete.setTypes(['geocode']);
