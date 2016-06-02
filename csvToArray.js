@@ -98,7 +98,7 @@ function initialize() {
 function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
-    window.alert(address);
+    //window.alert(address);
     var ret;
     geocoder.geocode({
         'address': address
@@ -110,7 +110,7 @@ function codeAddress(address) {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
     });
-    window.alert(ret);
+    //window.alert(ret);
     return ret;
 }
  
