@@ -5,8 +5,8 @@ function handle_files(files) {
         var reader = new FileReader();
         reader.onload = function(e) {
             //window.alert(e.target.result);
-            var data = CSVToArray(e.target.result);
-            window.alert(String(data));
+            var data = CSVToArray(String(e.target.result));
+            window.alert(data);
             }
         reader.onerror = function(stuff) {
             console.log("error", stuff);
