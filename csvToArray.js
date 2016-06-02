@@ -110,10 +110,10 @@ function codeAddress(address) {
             window.alert("codeAddress " + ret);
 
         } 
-        else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
-            nextAddress--;
-            delay++;
-        } 
+        else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT)
+        {      
+            setTimeout(3000);
+        }       
         else 
         {
             window.alert("Geocode was not successful for the following reason: " + status);
