@@ -165,20 +165,20 @@ function Distance(p1, p2) {
 }
 
 function checkDeals() {
-    window.alert("asd");
-    window.alert(data);
+    //window.alert("asd");
+    //window.alert(data);
     for (var i = 1; i <= data.length - 2; i++) {
         var temp = String(data[i][0] + data[i][4] + data[i][5]);
         window.alert(data[i][0]+ " " + data[i][4]+ " " +data[i][5]);
         //temp = initialize(temp);
-        var ret = codeAddress(temp);
+        /*var ret = codeAddress(temp);
         var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
         var p2 = new google.maps.LatLng(ret[0], ret[1]);
         if (Distance(p1, p2) <= 50.0000) {
             window.alert("True");
         } else {
             window.alert("False");
-        }
+        }*/
     }
 }
 
