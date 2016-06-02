@@ -185,6 +185,7 @@ function checkDeals() {
         var temp = String(data[i][0] + data[i][5]);
         window.alert(temp);
         temp = initialize(temp);
+        window.alert(temp);
         var ret = codeAddress(temp);
         window.alert(ret);
         var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
