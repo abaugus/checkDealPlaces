@@ -99,18 +99,20 @@ function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
     //window.alert(address);
-    var ret;
+    var ret = [];
     geocoder.geocode({
         'address': address
     }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            window.alert("Latitude: " + results[0].geometry.location.lat() + "Longitude: " + results[0].geometry.location.lng());
-            ret =  new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+            window.alert("Latitude: " + results[0].geometry.location.lat() + " Longitude: " + results[0].geometry.location.lng());
+            ret[0] = results[0].geometry.location.lat();
+            ret[1] = results[0].geometry.location.lng();
+            window.alert(ret);
+            
         } else {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
     });
-    //window.alert(ret);
     return ret;
 }
  
