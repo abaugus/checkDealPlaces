@@ -120,6 +120,7 @@ function codeAddress(address) {
         {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
+        window.alert("gone");
     });
     return ret;
 }
