@@ -148,5 +148,4 @@ function checkDeals() {
         }
     }*/
 }
-
-//checkDeals();
+google.maps.event.addDomListener(window, 'load', checkDeals);
