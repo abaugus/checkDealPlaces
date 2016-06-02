@@ -120,8 +120,8 @@ function codeAddress() {
     //return ret;
 }
 */
- function initialize() {
-        var address = (document.getElementById('my-address'));
+ function initialize(address) {
+        //var address = (document.getElementById('my-address'));
         var autocomplete = new google.maps.places.Autocomplete(address);
         autocomplete.setTypes(['geocode']);
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -140,7 +140,7 @@ function codeAddress() {
         }
       });
 }
-function codeAddress(address) {
+/*function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
@@ -154,8 +154,24 @@ function codeAddress(address) {
         alert("Geocode was not successful for the following reason: " + status);
       }
     });
-  }
-
+  }*/
+function codeAddress(address) {
+    geocoder = new google.maps.Geocoder();
+    //var address = document.getElementById("my-address").value;
+    var ret = [];
+    geocoder.geocode({
+        'address': address
+    }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            alert("Latitude: " + results[0].geometry.location.lat() + "Longitude: " + results[0].geometry.location.lng());
+            ret[0] = results[0].geometry.location.lat();
+            ret[1] = results[0].geometry.location.lng();
+        } else {
+            alert("Geocode was not successful for the following reason: " + status);
+        }
+    });
+    return ret;
+}
 /* 
     Shows the distance between two LatLng in Metre
 */
@@ -165,20 +181,19 @@ function Distance(p1, p2) {
 }
 
 function checkDeals() {
-    //window.alert("asd");
-    //window.alert(data);
     for (var i = 1; i <= data.length - 2; i++) {
-        var temp = String(data[i][0] + data[i][4] + data[i][5]);
-        window.alert(data[i][0]+ " " + data[i][4]+ " " +data[i][5]);
-        //temp = initialize(temp);
-        /*var ret = codeAddress(temp);
+        var temp = String(data[i][0] + data[i][5]);
+        window.alert(temp);
+        temp = initialize(temp);
+        var ret = codeAddress(temp);
+        window.alert(ret);
         var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
         var p2 = new google.maps.LatLng(ret[0], ret[1]);
         if (Distance(p1, p2) <= 50.0000) {
             window.alert("True");
         } else {
             window.alert("False");
-        }*/
+        } 
     }
 }
 
