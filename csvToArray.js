@@ -82,7 +82,6 @@ function CSVToArray(strData, strDelimiter) {
 }
 
 function initialize() {
-    //var address = name + city
     var address = (document.getElementById('my-address'));
     var autocomplete = new google.maps.places.Autocomplete(address);
     autocomplete.setTypes(['geocode']);
@@ -111,11 +110,11 @@ function codeAddress() {
         'address': address
     }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            console.log("Latitude: " + results[0].geometry.location.lat() + "Longitude: " + results[0].geometry.location.lng());
-            ret[0] = results[0].geometry.location.lat();
-            ret[1] = results[0].geometry.location.lng();
+            alert("Latitude: " + results[0].geometry.location.lat() + "Longitude: " + results[0].geometry.location.lng());
+            //ret[0] = results[0].geometry.location.lat();
+            //ret[1] = results[0].geometry.location.lng();
         } else {
-            console.log("Geocode was not successful for the following reason: " + status);
+            alert("Geocode was not successful for the following reason: " + status);
         }
     });
     //return ret;
@@ -185,4 +184,4 @@ function codeAddress() {
     });
   }
   */
-//google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize);
