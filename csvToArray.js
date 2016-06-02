@@ -75,7 +75,6 @@ function initialize() {
 function getAutoSuggestions(address) {
     //var address = (document.getElementById('my-address'));
     address = "KFC New Delhi";
-    alert(address);
     var autocomplete = new google.maps.places.Autocomplete(address);
     autocomplete.setTypes(['geocode']);
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -93,6 +92,7 @@ function getAutoSuggestions(address) {
             ].join(' ');
         }
     });
+    window.alert("leaving"+address);
     return address;
 }
 
