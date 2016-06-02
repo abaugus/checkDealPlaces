@@ -135,14 +135,14 @@ function checkDeals() {
     for (var i = 1; i <= data.length - 2; i++) {
         var temp = String(data[i][0] + data[i][4] + data[i][5]);
         //console.log(data[i][0]+ " "+ data[i][1]);
-        //temp = initialize(temp);
+        temp = initialize(temp);
         var ret = codeAddress(temp);
         var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
         var p2 = new google.maps.LatLng(ret[0], ret[1]);
         if (Distance(p1, p2) <= 50.0000) {
-            console.log("True");
+            window.alert("True");
         } else {
-            console.log("False");
+            window.alert("False");
         }
     }
 }
