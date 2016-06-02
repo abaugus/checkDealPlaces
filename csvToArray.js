@@ -81,9 +81,9 @@ function codeAddress(address) {
     }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             window.alert("Latitude: " + results[0].geometry.location.lat() + " Longitude: " + results[0].geometry.location.lng());
-            retLatLng[0] = results[0].geometry.location.lat();
-            retLatLng[1] = results[0].geometry.location.lng();
-            window.alert("codeAddress " + ret);
+            //retLatLng[0] = results[0].geometry.location.lat();
+            //retLatLng[1] = results[0].geometry.location.lng();
+            //window.alert("codeAddress " + ret);
         } 
         else 
         {
@@ -128,7 +128,7 @@ function checkDeals() {
         window.alert(temp);
         getAutoSuggestions(temp);
         /*var ret = codeAddress(val);
-        */
+        
         window.alert(retLatLng);
         if (retLatLng.length > 0) {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
@@ -140,6 +140,7 @@ function checkDeals() {
                 window.alert("False");
             }
         }
+        */
     }
 }
 
