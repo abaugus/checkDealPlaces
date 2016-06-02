@@ -1,46 +1,17 @@
-
-
-function initialize() {
-    //var address = name + city
-    //var address = (document.getElementById('my-address'));
-    var autocomplete = new google.maps.places.Autocomplete(address);
-    autocomplete.setTypes(['geocode']);
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-        var place = autocomplete.getPlace();
-        if (!place.geometry) {
-            return;
+function handle_files(files) {
+    for (i = 0; i < files.length; i++) {
+        file = files[i];
+        console.log(file);
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            window.alert(e.target.result);
+            var data = CSVToArray(e.target.result);
+            window.alert(data);
+            }
+        reader.onerror = function(stuff) {
+            console.log("error", stuff);
+            console.log(stuff.getMessage());
         }
-
-        var address = '';
-        if (place.address_components) {
-            address = [
-                (place.address_components[0] && place.address_components[0].short_name || ''),
-                (place.address_components[1] && place.address_components[1].short_name || ''),
-                (place.address_components[2] && place.address_components[2].short_name || '')
-            ].join(' ');
-        }
-    });
-}
-
-function codeAddress() {
-    geocoder = new google.maps.Geocoder();
-    var address = document.getElementById("my-address").value;
-    geocoder.geocode({
-        'address': address
-    }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            alert("Latitude: " + results[0].geometry.location.lat() + "Longitude: " + results[0].geometry.location.lng());
-        } else {
-            alert("Geocode was not successful for the following reason: " + status);
-        }
-    });
-}
-//google.maps.event.addDomListener(window, 'load', initialize);
-
-function checkDeals(){
-    for (var i = data.length - 1; i >= 0; i--) {
-        console.log(data[i][0]+data[i][1]);
-        //Things[i]
+        reader.readAsText(file); //readAsdataURL
     }
 }
-checkDeals();
