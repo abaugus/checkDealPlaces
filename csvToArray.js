@@ -138,8 +138,8 @@ function getAutoSuggestions(address) {
         }
       });
 }
- function initialize(address) {
-        //var address = (document.getElementById('my-address'));
+ function initialize() {
+        var address = (document.getElementById('my-address'));
         var autocomplete = new google.maps.places.Autocomplete(address);
         autocomplete.setTypes(['geocode']);
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
