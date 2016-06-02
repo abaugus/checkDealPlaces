@@ -98,6 +98,7 @@ function getAutoSuggestions(address) {
 function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
+    alert("gone "+address);
     var ret = [];
     geocoder.geocode({
         'address': address
@@ -133,7 +134,6 @@ function checkDeals() {
         var temp = String(data[i][4]);
         window.alert(temp);
         var val = getAutoSuggestions(temp);
-        window.alert(val);
         var ret = codeAddress(val);
         window.alert(ret);
         if (ret.length > 0) {
