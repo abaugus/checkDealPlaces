@@ -112,7 +112,7 @@ function getAutoSuggestions(address) {
             ].join(' ');
         }
     });
-    return codeAddress(address);
+    codeAddress(address);
 }
 
 
@@ -126,12 +126,13 @@ function checkDeals() {
     for (var i = 2; i <= data.length - 2; i++) {
         var temp = String(data[i][4]);
         window.alert(temp);
-        var val = getAutoSuggestions(temp);
+        getAutoSuggestions(temp);
         /*var ret = codeAddress(val);
-        */window.alert(retLatLng);
-        if (ret.length > 0) {
+        */
+        window.alert(retLatLng);
+        if (retLatLng.length > 0) {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
-            var p2 = new google.maps.LatLng(ret[0], ret[1]);
+            var p2 = new google.maps.LatLng(retLatLng[0], retLatLng[1]);
             window.alert(Distance(p1, p2));
             if (Distance(p1, p2) <= 200.0000) {
                 window.alert("True");
