@@ -105,17 +105,17 @@ function codeAddress(address) {
         alert("In");
         if (status == google.maps.GeocoderStatus.OK) {
             window.alert("Latitude: " + results[0].geometry.location.lat() + " Longitude: " + results[0].geometry.location.lng());
-            ret[0] = results[0].geometry.location.lat();
+            /*ret[0] = results[0].geometry.location.lat();
             ret[1] = results[0].geometry.location.lng();
             window.alert("codeAddress " + ret);
-        } 
+        */} 
         else 
         {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
         window.alert("gone");
     });
-    return ret;
+    //return ret;
 }
 
 function Distance(p1, p2) {
@@ -128,8 +128,8 @@ function checkDeals() {
         var temp = String(data[i][4]);
         window.alert(temp);
         var val = getAutoSuggestions(temp);
-        var ret = codeAddress(val);
-        window.alert("asd"+ret);
+        /*var ret = */codeAddress(val);
+        /*window.alert("asd"+ret);
         if (ret.length > 0) {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
             var p2 = new google.maps.LatLng(ret[0], ret[1]);
@@ -139,7 +139,7 @@ function checkDeals() {
             } else {
                 window.alert("False");
             }
-        }
+        }*/
     }
 }
 
