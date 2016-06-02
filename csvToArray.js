@@ -79,8 +79,7 @@ function CSVToArray(strData, strDelimiter) {
 
     // Return the parsed data.
     return (arrData);
-}
-/*
+}/*
 function initialize() {
     var address = (document.getElementById('my-address'));
     var autocomplete = new google.maps.places.Autocomplete(address);
