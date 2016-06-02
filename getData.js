@@ -1,2 +1,1 @@
- 
-download(csvContent, 'file.csv', 'text/csv');
+ download(csvContent, 'file.csv', 'text/csv');

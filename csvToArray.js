@@ -52,14 +52,14 @@ function CSVToArray(strData, strDelimiter) {
 }
 
 function initialize() {
-        var address = (document.getElementById('my-address'));
-        var autocomplete = new google.maps.places.Autocomplete(address);
-        autocomplete.setTypes(['geocode']);
-        google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            var place = autocomplete.getPlace();
-            if (!place.geometry) {
-                return;
-            }
+    var address = (document.getElementById('my-address'));
+    var autocomplete = new google.maps.places.Autocomplete(address);
+    autocomplete.setTypes(['geocode']);
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+            return;
+        }
 
         var address = '';
         if (place.address_components) {
@@ -67,21 +67,21 @@ function initialize() {
                 (place.address_components[0] && place.address_components[0].short_name || ''),
                 (place.address_components[1] && place.address_components[1].short_name || ''),
                 (place.address_components[2] && place.address_components[2].short_name || '')
-                ].join(' ');
+            ].join(' ');
         }
-      });
+    });
 }
 
 function getAutoSuggestions(address) {
-        //var address = (document.getElementById('my-address'));
-        address = "KFC New Delhi";
-        var autocomplete = new google.maps.places.Autocomplete(address);
-        autocomplete.setTypes(['geocode']);
-        google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            var place = autocomplete.getPlace();
-            if (!place.geometry) {
-                return;
-            }
+    //var address = (document.getElementById('my-address'));
+    address = "KFC New Delhi";
+    var autocomplete = new google.maps.places.Autocomplete(address);
+    autocomplete.setTypes(['geocode']);
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+            return;
+        }
 
         var address = '';
         if (place.address_components) {
@@ -89,10 +89,10 @@ function getAutoSuggestions(address) {
                 (place.address_components[0] && place.address_components[0].short_name || ''),
                 (place.address_components[1] && place.address_components[1].short_name || ''),
                 (place.address_components[2] && place.address_components[2].short_name || '')
-                ].join(' ');
+            ].join(' ');
         }
-      });
-        return address;
+    });
+    return address;
 }
 
 function codeAddress(address) {
@@ -107,18 +107,17 @@ function codeAddress(address) {
             window.alert("Latitude: " + results[0].geometry.location.lat() + " Longitude: " + results[0].geometry.location.lng());
             ret[0] = results[0].geometry.location.lat();
             ret[1] = results[0].geometry.location.lng();
-            window.alert("codeAddress "+ret);
-            
+            window.alert("codeAddress " + ret);
+
         } else {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
     });
     return ret;
 }
- 
 
 function Distance(p1, p2) {
-    var dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 100000;
+    var dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 100000.0;
     return dist;
 }
 
@@ -130,16 +129,15 @@ function checkDeals() {
         //window.alert(val);
         var ret = codeAddress(val);
         //window.alert(ret);
-        if(ret.length>0)
-        {
+        if (ret.length > 0) {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
             var p2 = new google.maps.LatLng(ret[0], ret[1]);
-            window.alert(Distance(p1,p2));
+            window.alert(Distance(p1, p2));
             if (Distance(p1, p2) <= 200.0000) {
                 window.alert("True");
             } else {
                 window.alert("False");
-            }    
+            }
         }
     }
 }
