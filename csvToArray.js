@@ -109,19 +109,17 @@ function codeAddress(address) {
             window.alert("codeAddress " + ret);
 
         } 
-        else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT)
+        /*else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT)
         {      
             setTimeout(3000);
             window.alert("Geocode was not successful for the following reason: " + status);
-            
-        }       
+        } */      
         else 
         {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
         window.alert("gone");
     });
-    window.alert("got out");
     return ret;
 }
 
