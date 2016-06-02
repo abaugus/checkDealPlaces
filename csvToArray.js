@@ -92,7 +92,6 @@ function getAutoSuggestions(address) {
             ].join(' ');
         }
     });
-    window.alert("leaving"+address);
     return address;
 }
 
@@ -134,9 +133,9 @@ function checkDeals() {
         var temp = String(data[i][4]);
         window.alert(temp);
         var val = getAutoSuggestions(temp);
-        //window.alert(val);
+        window.alert(val);
         var ret = codeAddress(val);
-        //window.alert(ret);
+        window.alert(ret);
         if (ret.length > 0) {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
             var p2 = new google.maps.LatLng(ret[0], ret[1]);
