@@ -126,7 +126,6 @@ function initialize() {
       });
 }
 function codeAddress(address) {
-    window.alert(address+ "code");
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
     var ret = [];
@@ -141,6 +140,7 @@ function codeAddress(address) {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
     });
+    window.alert(ret);
     return ret;
 }
  
