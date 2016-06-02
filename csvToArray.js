@@ -108,7 +108,6 @@ function codeAddress(address) {
             ret[0] = results[0].geometry.location.lat();
             ret[1] = results[0].geometry.location.lng();
             window.alert("codeAddress " + ret);
-
         } 
         else 
         {
@@ -130,7 +129,7 @@ function checkDeals() {
         window.alert(temp);
         var val = getAutoSuggestions(temp);
         var ret = codeAddress(val);
-        window.alert(ret);
+        window.alert("asd"+ret);
         if (ret.length > 0) {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
             var p2 = new google.maps.LatLng(ret[0], ret[1]);
