@@ -1,7 +1,7 @@
 var data;
 function handle_files(files) {
     window.alert("asdasd");
-    for (i = 0; i < files.length; i++) {
+    /*for (i = 0; i < files.length; i++) {
         file = files[i];
         console.log(file);
         var reader = new FileReader();
@@ -16,5 +16,5 @@ function handle_files(files) {
             console.log(stuff.getMessage());
         }
         reader.readAsText(file); //readAsdataURL
-    }
+    }*/
 }
