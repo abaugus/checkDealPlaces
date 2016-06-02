@@ -1,3 +1,4 @@
+var retLatLng = [];
 function CSVToArray(strData, strDelimiter) {
     strDelimiter = (strDelimiter || ",");
     var objPattern = new RegExp(
@@ -75,25 +76,20 @@ function initialize() {
 function codeAddress(address) {
     geocoder = new google.maps.Geocoder();
     //var address = document.getElementById("my-address").value;
-    var ret = [];
-    alert("INNER");
     geocoder.geocode({
         'address': address
     }, function(results, status) {
-        alert("In");
         if (status == google.maps.GeocoderStatus.OK) {
             window.alert("Latitude: " + results[0].geometry.location.lat() + " Longitude: " + results[0].geometry.location.lng());
-            /*ret[0] = results[0].geometry.location.lat();
-            ret[1] = results[0].geometry.location.lng();
+            retLatLng[0] = results[0].geometry.location.lat();
+            retLatLng[1] = results[0].geometry.location.lng();
             window.alert("codeAddress " + ret);
-        */} 
+        } 
         else 
         {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
-        window.alert("gone");
     });
-    //return ret;
 }
 
 function getAutoSuggestions(address) {
@@ -132,7 +128,7 @@ function checkDeals() {
         window.alert(temp);
         var val = getAutoSuggestions(temp);
         /*var ret = codeAddress(val);
-        */window.alert("asd"+ret);
+        */window.alert(retLatLng);
         if (ret.length > 0) {
             var p1 = new google.maps.LatLng(data[i][8], data[i][9]);
             var p2 = new google.maps.LatLng(ret[0], ret[1]);
