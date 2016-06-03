@@ -81,9 +81,9 @@ function codeAddress(address) {
     }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             window.alert("Latitude: " + results[0].geometry.location.lat() + " Longitude: " + results[0].geometry.location.lng());
-            //retLatLng[0] = results[0].geometry.location.lat();
-            //retLatLng[1] = results[0].geometry.location.lng();
-            //window.alert("codeAddress " + ret);
+            retLatLng[0] = results[0].geometry.location.lat();
+            retLatLng[1] = results[0].geometry.location.lng();
+            window.alert("codeAddress " + ret);
         } 
         else 
         {
@@ -125,7 +125,7 @@ function Distance(p1, p2) {
 function checkDeals() {
     for (var i = 2; i <= data.length - 2; i++) {
         var temp = String(data[i][4]);
-        window.alert(temp);
+        //window.alert(temp);
         getAutoSuggestions(temp);
         /*var ret = codeAddress(val);
         
