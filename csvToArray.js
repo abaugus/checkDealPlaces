@@ -81,9 +81,9 @@ function codeAddress(address) {
     }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             window.alert("Latitude: " + results[0].geometry.location.lat() + " Longitude: " + results[0].geometry.location.lng());
-            retLatLng[0] = results[0].geometry.location.lat();
-            retLatLng[1] = results[0].geometry.location.lng();
-            window.alert("codeAddress " + ret);
+            //retLatLng[0] = results[0].geometry.location.lat();
+            //retLatLng[1] = results[0].geometry.location.lng();
+            //window.alert("codeAddress " + ret);
         } 
         else 
         {
